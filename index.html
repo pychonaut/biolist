@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>biolist — 건강, 짐작 말고 확실한 근거로.</title>
+<meta name="description" content="의학적 근거, 비용, 실천 난이도. 세상의 건강법을 하나의 리스트로.">
+<meta property="og:site_name" content="biolist">
+<meta property="og:title" content="biolist — 건강, 짐작 말고 확실한 근거로.">
+<meta property="og:description" content="의학적 근거, 비용, 실천 난이도. 세상의 건강법을 하나의 리스트로.">
+<meta property="og:url" content="https://biolist.co.kr">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://biolist.co.kr/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧬</text></svg>">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#0A0A0A;--card:#1A1A1A;--card-hover:#252525;--card-border:#2A2A2A;
+--text:#F0F0F0;--text-sub:#888;--text-hint:#555;
+--cta:#00C896;--cta-hover:#00E0A8;
+--radius:12px;--font:'Pretendard Variable',-apple-system,BlinkMacSystemFont,sans-serif;--serif:'Noto Serif KR',serif;
+}
+html{-webkit-tap-highlight-color:transparent;overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:var(--font);-webkit-font-smoothing:antialiased;overflow-x:hidden;padding-bottom:60px}
+::-webkit-scrollbar{display:none}
+body{-ms-overflow-style:none;scrollbar-width:none}
+.container{max-width:480px;margin:0 auto;padding:0 20px}
+
+/* Topbar */
+.topbar{position:sticky;top:0;z-index:100;padding:12px 20px;background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center}
+.topbar-logo{font-size:15px;font-weight:500;letter-spacing:2px;color:#888}
+.topbar-btn{padding:7px 14px;background:var(--cta);color:#000;border:none;border-radius:8px;font-size:12px;font-weight:700;font-family:var(--font);cursor:pointer;transition:background 0.2s}
+.topbar-btn:hover{background:var(--cta-hover)}
+
+/* Hero - Screen 1: Quote */
+.hero-screen1{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 20px;padding-bottom:60px}
+.hero-quote{font-family:var(--serif);font-size:32px;font-weight:700;color:#ccc;line-height:1.5;margin-bottom:12px;opacity:0;animation:fadeIn 0.8s ease forwards}
+.hero-quote-author{font-size:14px;font-weight:400;color:#666;opacity:0;animation:fadeIn 0.8s ease 0.3s forwards}
+.hero-scroll-hint{margin-top:48px;opacity:0;animation:fadeIn 1.2s ease 1s forwards}
+.hero-scroll-hint span{display:block;font-size:20px;animation:bounce 2s ease infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* Hero - Screen 2: Main copy */
+.hero-screen2{padding:80px 20px 48px;max-width:480px;margin:0 auto}
+.hero-main{font-size:28px;font-weight:700;color:#F0F0F0;line-height:1.4;margin-bottom:24px}
+.hero-sub{font-size:16px;font-weight:400;color:#888;line-height:1.7}
+
+/* Scroll fade-in */
+.scroll-fade{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease}
+.scroll-fade.visible{opacity:1;transform:translateY(0)}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+/* Authority Slider */
+.authority{padding:32px 0;overflow:hidden}
+.authority-title{font-size:13px;font-weight:500;color:var(--text-hint);letter-spacing:1px;text-transform:uppercase;margin-bottom:20px;padding:0 20px}
+.slider-wrap{overflow:hidden}
+.slider-track{display:flex;gap:12px;padding:0;animation:slide 36s linear infinite;will-change:transform}
+.slider-track:hover{animation-play-state:paused}
+@keyframes slide{0%{transform:translateX(0)}100%{transform:translateX(calc(-173px * 9))}}
+.auth-card{min-width:161px;height:161px;background:var(--card);border:0.5px solid var(--card-border);border-radius:var(--radius);padding:20px;display:flex;flex-direction:column;justify-content:space-between;flex-shrink:0;transition:background 0.2s}
+.auth-card:hover{background:var(--card-hover)}
+.auth-card-name{font-size:15px;font-weight:700}
+.auth-card-title{font-size:11px;color:var(--text-sub);line-height:1.4;margin-top:4px}
+.auth-card-tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:10px;color:var(--text-sub);background:rgba(255,255,255,0.06);padding:3px 8px;border-radius:20px}
+
+/* Section Divider */
+.section-divider{height:0.5px;background:var(--card-border);margin:0 20px}
+
+/* Category Tabs */
+.categories{padding:32px 0 0}
+.cat-tabs{display:flex;justify-content:space-around;padding:0 10px 16px;margin-bottom:24px;border-bottom:0.5px solid var(--card-border)}
+.cat-tab{display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;padding:8px 4px;border-bottom:2px solid transparent;transition:all 0.2s;min-width:44px}
+.cat-tab.active{border-bottom-color:var(--cta)}
+.cat-tab.active .cat-label{color:var(--text)}
+.cat-emoji{font-size:20px}
+.cat-label{font-size:11px;color:var(--text-sub);font-weight:500;transition:color 0.2s}
+
+/* Card Grid (our original style) */
+.card-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 20px}
+.card{position:relative;aspect-ratio:1/1;border-radius:14px;overflow:hidden;cursor:pointer;background:var(--card);border:0.5px solid var(--card-border)}
+.card-bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.2) 100%)}
+.card-content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:12px;text-align:center}
+.card-rank{position:absolute;top:10px;left:10px;font-size:11px;font-weight:700;padding:3px 8px;border-radius:20px;z-index:3}
+.rank-a{background:rgba(34,197,94,0.2);color:#4ade80}
+.rank-b{background:rgba(59,130,246,0.2);color:#60a5fa}
+.rank-c{background:rgba(245,158,11,0.2);color:#fbbf24}
+.card-name{font-size:16px;font-weight:700;line-height:1.3;text-shadow:0 1px 4px rgba(0,0,0,0.5)}
+.card-badges{position:absolute;bottom:10px;left:10px;right:10px;display:flex;gap:4px;flex-wrap:wrap;z-index:3}
+.card-badge{font-size:9px;padding:3px 7px;border-radius:10px;background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.7)}
+
+/* Card Expanded (L2) */
+.card.expanded .card-content{display:none}
+.card.expanded .card-rank{display:none}
+.card.expanded .card-badges{display:none}
+.card-expanded-content{display:none;padding:10px;height:100%;flex-direction:column;justify-content:center;gap:6px;position:relative;z-index:2;overflow:hidden}
+.card.expanded .card-expanded-content{display:flex}
+.card.expanded .card-bg{opacity:0.15}
+.card.expanded .card-overlay{background:linear-gradient(to top,rgba(0,0,0,0.95) 0%,rgba(0,0,0,0.85) 100%)}
+.exp-title{font-size:13px;font-weight:700;text-align:center;margin-bottom:0}
+.exp-bars-area{display:flex;flex-direction:column;gap:6px;justify-content:center;flex:1}
+.exp-bar-row{display:flex;align-items:center;gap:5px}
+.exp-bar-label{font-size:11px;color:rgba(255,255,255,0.6);width:32px;flex-shrink:0;white-space:nowrap}
+.exp-bar-label .emoji{font-size:12px}
+.exp-bar-track{flex:1;height:5px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden}
+.exp-bar-fill{height:100%;border-radius:3px;transition:width 0.5s ease}
+.exp-open-btn{font-size:12px;font-weight:700;color:#fff;text-align:center;padding:8px 0;background:var(--cta);border-radius:8px;cursor:pointer;width:100%;flex-shrink:0}
+
+/* Cards Container */
+.cards-container{display:none}
+.cards-container.active{display:block}
+
+/* Fake Door */
+.fake-door{padding:0 20px;text-align:center;display:none}
+.fake-door.active{display:block}
+.fake-door-box{background:var(--card);border:0.5px solid var(--card-border);border-radius:var(--radius);padding:32px 20px}
+.fake-door-text{font-size:15px;font-weight:500;color:var(--text-sub);margin-bottom:8px}
+.fake-door-sub{font-size:13px;color:var(--text-hint);margin-bottom:20px}
+.email-form{display:flex;flex-direction:column;gap:10px;max-width:360px;margin:0 auto}
+.email-input{background:var(--card);border:0.5px solid var(--card-border);border-radius:8px;padding:14px 16px;font-size:15px;color:var(--text);font-family:var(--font);outline:none;transition:border-color 0.2s}
+.email-input:focus{border-color:var(--cta)}
+.email-input::placeholder{color:var(--text-hint)}
+
+/* CTA Section */
+.cta-section{padding:40px 20px;text-align:center}
+.cta-title{font-size:16px;color:var(--text-sub);margin-bottom:20px;line-height:1.6}
+.cta-btn{background:var(--cta);color:#000;border:none;border-radius:8px;padding:14px;font-size:15px;font-weight:700;font-family:var(--font);cursor:pointer;transition:background 0.2s}
+.cta-btn:hover{background:var(--cta-hover)}
+.cta-btn:active{transform:scale(0.98)}
+
+/* Post Signup */
+.post-signup{display:none;text-align:center;padding:0 20px}
+.post-signup.active{display:block}
+.post-title{font-size:20px;font-weight:700;margin-bottom:12px}
+.post-sub{font-size:14px;color:var(--text-sub);line-height:1.7;margin-bottom:24px}
+.post-question{font-size:15px;margin-bottom:16px;line-height:1.6}
+.voc-form{display:flex;flex-direction:column;gap:10px;max-width:360px;margin:0 auto}
+.voc-input{background:var(--card);border:0.5px solid var(--card-border);border-radius:8px;padding:14px 16px;font-size:15px;color:var(--text);font-family:var(--font);outline:none;resize:none;min-height:80px;transition:border-color 0.2s}
+.voc-input:focus{border-color:var(--cta)}
+.voc-input::placeholder{color:var(--text-hint)}
+.voc-btn{background:var(--card);color:var(--text);border:0.5px solid var(--card-border);border-radius:8px;padding:12px;font-size:14px;font-weight:500;font-family:var(--font);cursor:pointer;transition:all 0.2s}
+.voc-btn:hover{background:var(--card-hover)}
+.voc-thanks{display:none;font-size:14px;color:var(--cta);margin-top:12px}
+
+/* Detail Overlay (L3) */
+.detail-overlay{position:fixed;inset:0;z-index:200;background:var(--bg);overflow-y:auto;overflow-x:hidden;touch-action:pan-y;display:none}
+.detail-overlay.active{display:block}
+.detail-topbar{position:sticky;top:0;z-index:210;padding:14px 20px;background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);display:flex;align-items:center}
+.detail-back{background:none;border:none;color:var(--text);font-size:15px;font-family:var(--font);cursor:pointer}
+.detail-hero{padding:24px 20px;text-align:center}
+.detail-name{font-size:24px;font-weight:800;margin-bottom:6px}
+.detail-desc{font-size:14px;color:var(--text-sub);line-height:1.6}
+.detail-section{padding:20px 20px 0}
+.detail-section-title{font-size:13px;color:var(--text-hint);letter-spacing:1px;margin-bottom:14px}
+.detail-bar-row{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.detail-bar-label{font-size:14px;color:var(--text-sub);width:50px}
+.detail-bar-track{flex:1;height:8px;background:rgba(255,255,255,0.08);border-radius:4px;overflow:hidden}
+.detail-bar-fill{height:100%;border-radius:4px}
+.detail-bar-value{font-size:13px;color:var(--text);width:40px;text-align:right}
+.detail-info{padding:20px;font-size:14px;color:var(--text-sub);line-height:1.8}
+.detail-info dt{color:var(--text);font-weight:600;margin-top:12px}
+.detail-info dd{margin-left:0}
+.detail-cta{padding:20px;text-align:center;padding-bottom:40px}
+.detail-cta button{width:100%;max-width:400px;padding:14px;background:rgba(255,255,255,0.1);color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:700;font-family:var(--font);cursor:pointer}
+
+/* Sticky Bar */
+.sticky-bar{position:fixed;bottom:0;left:0;right:0;z-index:150;padding:12px 20px 14px;background:rgba(10,10,10,0.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,0.06);transition:transform 0.3s ease;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.sticky-bar.sticky-hidden{transform:translateY(100%);pointer-events:none}
+.sticky-bar-text{font-size:13px;color:var(--text-sub);flex:1}
+.sticky-bar-btn{padding:10px 20px;background:var(--cta);color:#000;border:none;border-radius:8px;font-size:13px;font-weight:700;font-family:var(--font);cursor:pointer;white-space:nowrap;flex-shrink:0}
+.sticky-bar-close{background:none;border:none;color:rgba(255,255,255,0.25);font-size:16px;cursor:pointer;padding:4px;flex-shrink:0}
+
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+
+<!-- Topbar -->
+<header class="topbar">
+  <div class="topbar-logo">biolist</div>
+  <button class="topbar-btn" onclick="document.getElementById('ctaSection').scrollIntoView({behavior:'smooth'})">등록하기</button>
+</header>
+
+<!-- Hero Screen 1: Quote -->
+<section class="hero-screen1">
+  <p class="hero-quote">노화는 질병이다</p>
+  <p class="hero-quote-author">— 데이비드 싱클레어, 하버드 의대 유전학 교수</p>
+  <div class="hero-scroll-hint"><span>↓</span></div>
+</section>
+
+<!-- Hero Screen 2: Main Copy -->
+<section class="hero-screen2">
+  <h1 class="hero-main scroll-fade">예전 같지 않다면,<br>아직 방법을 못 찾은 겁니다</h1>
+  <p class="hero-sub scroll-fade">의학적 근거, 비용, 실천 난이도.<br>세상의 건강법을 하나의 리스트로.</p>
+</section>
+
+<!-- Authority Slider -->
+<section class="authority">
+  <div class="authority-title">REFERENCES</div>
+  <p style="font-size:14px;color:var(--text-sub);padding:0 20px;margin-bottom:20px">세계가 주목하는 건강 정보를 한곳에서 확인하세요</p>
+  <div class="slider-wrap">
+    <div class="slider-track" id="sliderTrack"></div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Category Tabs + Cards -->
+<section class="categories" id="categoriesSection">
+  <div class="container">
+    <div class="cat-tabs" id="catTabs">
+      <div class="cat-tab active" data-cat="body"><span class="cat-emoji">💪</span><span class="cat-label">체중·근력</span></div>
+      <div class="cat-tab" data-cat="aging"><span class="cat-emoji">🕐</span><span class="cat-label">노화</span></div>
+      <div class="cat-tab" data-cat="fatigue"><span class="cat-emoji">⚡</span><span class="cat-label">피로</span></div>
+      <div class="cat-tab" data-cat="sleep"><span class="cat-emoji">😴</span><span class="cat-label">수면</span></div>
+      <div class="cat-tab" data-cat="brain"><span class="cat-emoji">🧠</span><span class="cat-label">두뇌</span></div>
+      <div class="cat-tab" data-cat="digest"><span class="cat-emoji">🫁</span><span class="cat-label">소화</span></div>
+    </div>
+  </div>
+
+  <div class="cards-container active" data-cat="body">
+    <div class="card-grid" id="body-cards"></div>
+  </div>
+  <div class="cards-container" data-cat="aging">
+    <div class="card-grid" id="aging-cards"></div>
+  </div>
+
+  <!-- Fake Doors -->
+  <div class="fake-door" data-cat="fatigue">
+    <div class="fake-door-box">
+      <p class="fake-door-text">준비 중입니다.</p>
+      <p class="fake-door-sub">오픈 시 가장 먼저 알려드리겠습니다.</p>
+      <div class="email-form"><input type="email" class="email-input" placeholder="이메일 주소"><button class="cta-btn" onclick="handleFakeDoorSignup(this)">알림 받기</button></div>
+    </div>
+  </div>
+  <div class="fake-door" data-cat="sleep">
+    <div class="fake-door-box">
+      <p class="fake-door-text">준비 중입니다.</p>
+      <p class="fake-door-sub">오픈 시 가장 먼저 알려드리겠습니다.</p>
+      <div class="email-form"><input type="email" class="email-input" placeholder="이메일 주소"><button class="cta-btn" onclick="handleFakeDoorSignup(this)">알림 받기</button></div>
+    </div>
+  </div>
+  <div class="fake-door" data-cat="brain">
+    <div class="fake-door-box">
+      <p class="fake-door-text">준비 중입니다.</p>
+      <p class="fake-door-sub">오픈 시 가장 먼저 알려드리겠습니다.</p>
+      <div class="email-form"><input type="email" class="email-input" placeholder="이메일 주소"><button class="cta-btn" onclick="handleFakeDoorSignup(this)">알림 받기</button></div>
+    </div>
+  </div>
+  <div class="fake-door" data-cat="digest">
+    <div class="fake-door-box">
+      <p class="fake-door-text">준비 중입니다.</p>
+      <p class="fake-door-sub">오픈 시 가장 먼저 알려드리겠습니다.</p>
+      <div class="email-form"><input type="email" class="email-input" placeholder="이메일 주소"><button class="cta-btn" onclick="handleFakeDoorSignup(this)">알림 받기</button></div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider" style="margin-top:32px"></div>
+
+<!-- CTA -->
+<section class="cta-section" id="ctaSection">
+  <p class="cta-title">내 몸에 맞는 새로운 선택지,<br>가장 먼저 받아보세요.</p>
+  <div class="email-form" id="mainEmailForm">
+    <input type="email" class="email-input" id="mainEmail" placeholder="이메일을 입력하세요">
+    <button class="cta-btn" onclick="handleMainSignup()">알림 받기</button>
+  </div>
+  <p style="font-size:12px;color:var(--text-hint);margin-top:12px">광고 없음 · 언제든 해지 가능</p>
+</section>
+
+<!-- Post Signup -->
+<section class="post-signup" id="postSignup">
+  <p class="post-title">등록 완료!</p>
+  <p class="post-sub">biolist는 지금 이 순간에도 만들어지고 있습니다.</p>
+  <p class="post-question">가장 먼저 데이터로 확인하고 싶은<br>고민은 무엇인가요?</p>
+  <div class="voc-form">
+    <textarea class="voc-input" id="vocInput" placeholder="예: 자도 자도 피곤해요"></textarea>
+    <button class="voc-btn" onclick="handleVoc()">보내기</button>
+    <p class="voc-thanks" id="vocThanks">감사합니다. 반영하겠습니다.</p>
+  </div>
+</section>
+
+<footer style="text-align:center;padding:32px 20px 48px;font-size:12px;color:var(--text-hint)">© 2026 biolist</footer>
+
+<!-- Sticky Bar -->
+<div class="sticky-bar sticky-hidden" id="stickyBar">
+  <p class="sticky-bar-text">짐작은 그만, 내 몸에 맞는 방법을 고르세요</p>
+  <button class="sticky-bar-btn" onclick="document.getElementById('ctaSection').scrollIntoView({behavior:'smooth'})">등록하기</button>
+  <button class="sticky-bar-close" onclick="this.parentElement.classList.add('sticky-hidden')">✕</button>
+</div>
+
+<!-- Detail Overlay (L3) -->
+<div class="detail-overlay" id="detailOverlay">
+  <div class="detail-topbar"><button class="detail-back" onclick="closeDetail()">← 뒤로</button></div>
+  <div id="detailContent"></div>
+</div>
+
+<script>
+// ===== Data (v2 spec) =====
+var data={
+  body:[
+    {name:'고단백 식단',rank:'A',badges:['식단','체중'],img:'https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=400&h=400&fit=crop',gradient:'linear-gradient(135deg,#1a3a2a,#0d1f15)',
+     evidence:9,cost:5,difficulty:6,safety:9,
+     summary:'체중 1kg당 1.6g 이상의 단백질을 매일 섭취',
+     monthlyCost:'월 10~30만원 (식단 구성에 따라)',effectStart:'4~8주 (근력 운동 병행 시)',
+     keyEvidence:'2025 네트워크 메타분석에서 근력 운동 + 단백질 보충이 근력(SMD=0.45)과 근량 모두 유의미 향상. 1.3g/kg 초과 시 추가 이득 감소',
+     caution:'신장 질환자는 의사 상담 필요. 건강한 성인에게는 안전',
+     experts:'가브리엘 라이언, 피터 아티아'},
+    {name:'크레아틴',rank:'A',badges:['보충제','근육'],img:'https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=400&h=400&fit=crop',gradient:'linear-gradient(135deg,#1a2a3a,#0d1520)',
+     evidence:10,cost:9,difficulty:9,safety:9,
+     summary:'하루 3~5g 크레아틴 모노하이드레이트 복용',
+     monthlyCost:'월 5천~2만원',effectStart:'1~2주 (근육 충전 완료 시점)',
+     keyEvidence:'685개 임상시험, 12,839명 대상. 부작용 발생률 플라시보(13.2%)와 크레아틴(13.7%) 차이 없음. 근력 운동 병행 시 제지방량 +1.1kg, 체지방 -0.7kg',
+     caution:'충분한 수분 섭취 권장 (3.5~4L/일). 신장 기능 정상인에게 안전. 탈모 유발 근거 없음',
+     experts:'피터 아티아, 앤드류 후버만'},
+    {name:'식후 산책',rank:'B',badges:['운동','혈당'],img:'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=400&h=400&fit=crop',gradient:'linear-gradient(135deg,#2a2a1a,#15150d)',
+     evidence:7,cost:10,difficulty:10,safety:10,
+     summary:'식사 후 15분 걷기',
+     monthlyCost:'무료',effectStart:'즉시 (식후 혈당 스파이크 당일 감소)',
+     keyEvidence:'소규모 RCT 다수에서 식후 15분 걷기가 혈당 스파이크를 유의미하게 감소시킴. 체중 감량 직접 근거는 약하지만 대사 건강 개선 효과',
+     caution:'특별한 부작용 없음. 누구나 즉시 시작 가능',
+     experts:'제시 인차우스페, 피터 아티아'},
+    {name:'식사 순서 뒤집기',rank:'B',badges:['식단','혈당'],img:'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=400&fit=crop',gradient:'linear-gradient(135deg,#2a1a2a,#150d15)',
+     evidence:7,cost:10,difficulty:9,safety:10,
+     summary:'채소 → 단백질 → 탄수화물 순서로 식사',
+     monthlyCost:'무료',effectStart:'즉시 (식후 혈당 반응 당일 감소)',
+     keyEvidence:'소규모 RCT에서 식이섬유를 먼저 섭취하면 혈당 스파이크 감소 확인. 장기 체중 감량 근거는 제한적이나 식습관 개선에 효과적',
+     caution:'부작용 없음. 섭식 장애 이력이 있는 경우 음식 순서 강박에 주의',
+     experts:'제시 인차우스페'}
+  ],
+  aging:[
+    {name:'간헐적 단식',rank:'B',badges:['단식','대사'],img:'https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=400&h=400&fit=crop',gradient:'linear-gradient(135deg,#1a2a2a,#0d1515)',
+     evidence:7,cost:10,difficulty:6,safety:7,
+     summary:'16시간 공복 + 8시간 식사 (16:8 프로토콜)',
+     monthlyCost:'무료',effectStart:'2~4주 (체중 감소, 인슐린 감수성 개선)',
+     keyEvidence:'체중 감량·인슐린 감수성 개선 인체 근거 있음. 오토파지 촉진 동물 근거. 장기 안전성 양호하나 일부 연구에서 근손실 우려 제기',
+     caution:'초기 두통·피로·짜증 가능. 단백질 섭취와 병행 권장. 임산부·당뇨 환자는 의사 상담 필요',
+     experts:'제이슨 펑, 데이비드 싱클레어'},
+    {name:'NMN',rank:'B',badges:['보충제','노화'],img:'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=400&fit=crop',gradient:'linear-gradient(135deg,#2a1a3a,#150d20)',
+     evidence:6,cost:4,difficulty:9,safety:8,
+     summary:'하루 250~1,000mg NMN 보충제 복용',
+     monthlyCost:'월 3~15만원 (용량·브랜드에 따라)',effectStart:'4~8주 (NAD+ 수치 상승, 체감 에너지 변화)',
+     keyEvidence:'2022 인체시험에서 근육 인슐린 감수성 25% 개선. 2026 임상에서 NMN이 혈중 NAD+를 2배 증가시킴 확인. 단, 장기(1년 이상) 안전성은 아직 미확립',
+     caution:'단기(~12주) 복용은 안전 확인. 장기 복용 데이터 부족. TMG 병행 권장',
+     experts:'데이비드 싱클레어, 피터 아티아'},
+    {name:'사우나',rank:'B',badges:['열노출','심혈관'],img:'https://images.unsplash.com/photo-1554244933-d876deb6b2ff?w=400&h=400&fit=crop',gradient:'linear-gradient(135deg,#3a1a1a,#200d0d)',
+     evidence:7,cost:8,difficulty:6,safety:6,
+     summary:'주 2~4회, 15~20분 사우나 (80~100°C)',
+     monthlyCost:'무료~5만원 (찜질방·시설에 따라)',effectStart:'4~8주 (심혈관·회복력 체감)',
+     keyEvidence:'핀란드 코호트 연구(2,315명, 20년 추적)에서 주 4~7회 사우나 이용자의 심혈관 사망 위험이 주 1회 대비 50% 낮음. 열충격단백질(HSP) 활성화 근거',
+     caution:'탈수 주의, 충분한 수분 섭취 필수. 혈압 이상·심장 질환자는 의사 상담. 음주 후 사우나 금지',
+     experts:'앤드류 후버만, 데이비드 싱클레어'},
+    {name:'비타민D',rank:'A',badges:['보충제','면역'],img:'https://images.unsplash.com/photo-1471922694854-ff1b63b20054?w=400&h=400&fit=crop',gradient:'linear-gradient(135deg,#3a2a1a,#201510)',
+     evidence:9,cost:9,difficulty:10,safety:9,
+     summary:'하루 1,000~4,000 IU 비타민D3 보충',
+     monthlyCost:'월 3천~1만원',effectStart:'4~8주 (혈중 수치 정상화)',
+     keyEvidence:'골밀도·면역 기능 관련 대규모 메타분석 다수. 한국인 비타민D 결핍률 약 75%. 노화 직접 관련 근거는 제한적이나 전반적 건강 유지에 필수',
+     caution:'일일 10,000 IU 이상 장기 복용 시 독성 가능. 권장 범위 내에서 안전. 비타민K2 병행 권장',
+     experts:'데이비드 싱클레어, 앤드류 후버만'}
+  ]
+};
+
+// ===== Bar color (10점 스케일: 8-10 초록, 5-7 노랑, 1-4 빨강) =====
+function barColor(v){return v>=8?'#22C55E':v>=5?'#F59E0B':'#EF4444'}
+
+// ===== Render Cards =====
+function renderCards(type,items){
+  var grid=document.getElementById(type+'-cards');
+  if(!grid)return;
+  grid.innerHTML='';
+  items.forEach(function(item,i){
+    var card=document.createElement('div');
+    card.className='card';
+    card.setAttribute('data-type',type);
+    card.setAttribute('data-index',i);
+    card.innerHTML=
+      '<div class="card-bg" style="background-image:url(\''+item.img+'\');background-color:#1A1A1A"></div>'+
+      '<div class="card-overlay"></div>'+
+      '<span class="card-rank rank-'+item.rank.toLowerCase()+'">'+item.rank+'</span>'+
+      '<div class="card-content"><div class="card-name">'+item.name+'</div></div>'+
+      '<div class="card-badges">'+item.badges.map(function(b){return '<span class="card-badge">'+b+'</span>'}).join('')+'</div>'+
+      '<div class="card-expanded-content">'+
+        '<div class="exp-title">'+item.name+'</div>'+
+        '<div class="exp-bars-area">'+
+          '<div class="exp-bar-row"><span class="exp-bar-label">근거</span><div class="exp-bar-track"><div class="exp-bar-fill" style="width:'+(item.evidence*10)+'%;background:'+barColor(item.evidence)+'"></div></div></div>'+
+          '<div class="exp-bar-row"><span class="exp-bar-label">비용</span><div class="exp-bar-track"><div class="exp-bar-fill" style="width:'+(item.cost*10)+'%;background:'+barColor(item.cost)+'"></div></div></div>'+
+          '<div class="exp-bar-row"><span class="exp-bar-label">난이도</span><div class="exp-bar-track"><div class="exp-bar-fill" style="width:'+(item.difficulty*10)+'%;background:'+barColor(item.difficulty)+'"></div></div></div>'+
+          '<div class="exp-bar-row"><span class="exp-bar-label">안전</span><div class="exp-bar-track"><div class="exp-bar-fill" style="width:'+(item.safety*10)+'%;background:'+barColor(item.safety)+'"></div></div></div>'+
+        '</div>'+
+        '<div class="exp-open-btn">탭하여 상세보기</div>'+
+      '</div>';
+    card.addEventListener('click',function(e){
+      if(e.target.closest('.exp-open-btn')){
+        openDetail(type,i);
+        return;
+      }
+      if(card.classList.contains('expanded')){
+        card.classList.remove('expanded');
+      } else {
+        document.querySelectorAll('.card.expanded').forEach(function(c){c.classList.remove('expanded')});
+        card.classList.add('expanded');
+      }
+    });
+    grid.appendChild(card);
+  });
+}
+
+// ===== Detail (L3) =====
+var savedScrollY=0;
+function openDetail(type,index){
+  var item=data[type][index];
+  savedScrollY=window.scrollY;
+  document.body.style.position='fixed';
+  document.body.style.top=(-savedScrollY)+'px';
+  document.body.style.left='0';
+  document.body.style.right='0';
+  var html='<div class="detail-hero"><div class="detail-name">'+item.name+'</div><p class="detail-desc">'+item.summary+'</p></div>';
+  html+='<div class="detail-section"><div class="detail-section-title">SCORES</div>';
+  var bars=[{l:'근거',v:item.evidence},{l:'비용',v:item.cost},{l:'난이도',v:item.difficulty},{l:'안전',v:item.safety}];
+  bars.forEach(function(b){
+    html+='<div class="detail-bar-row"><span class="detail-bar-label">'+b.l+'</span><div class="detail-bar-track"><div class="detail-bar-fill" style="width:'+(b.v*10)+'%;background:'+barColor(b.v)+'"></div></div><span class="detail-bar-value">'+b.v+'/10</span></div>';
+  });
+  html+='</div>';
+  html+='<div class="detail-section"><div class="detail-section-title">INFO</div><dl class="detail-info">';
+  html+='<dt>월 비용</dt><dd>'+item.monthlyCost+'</dd>';
+  html+='<dt>효과 시작</dt><dd>'+item.effectStart+'</dd>';
+  html+='<dt>핵심 근거</dt><dd>'+item.keyEvidence+'</dd>';
+  html+='<dt>주의사항</dt><dd>'+item.caution+'</dd>';
+  html+='<dt>관련 전문가</dt><dd>'+item.experts+'</dd>';
+  html+='</dl></div>';
+  html+='<div class="detail-cta"><button onclick="document.getElementById(\'ctaSection\').scrollIntoView({behavior:\'smooth\'}); closeDetail();">알림 받기 →</button></div>';
+  document.getElementById('detailContent').innerHTML=html;
+  document.getElementById('detailOverlay').classList.add('active');
+  history.pushState({detail:true},'');
+}
+function closeDetail(fromPopstate){
+  var overlay=document.getElementById('detailOverlay');
+  if(!overlay.classList.contains('active'))return;
+  overlay.classList.remove('active');
+  document.body.style.position='';
+  document.body.style.top='';
+  document.body.style.left='';
+  document.body.style.right='';
+  window.scrollTo(0,savedScrollY);
+  if(!fromPopstate) history.back();
+}
+window.addEventListener('popstate',function(){closeDetail(true)});
+
+// ===== Expert Slider =====
+var experts=[
+{name:'데이비드 싱클레어',title:'하버드 의대\n유전학 교수',tags:['노화','장수']},
+{name:'앤드류 후버만',title:'스탠포드 의대\n신경생물학 부교수',tags:['두뇌','수면']},
+{name:'브라이언 존슨',title:'Blueprint 창시자\n역노화 프로젝트',tags:['노화','실천']},
+{name:'피터 아티아',title:'Early Medical 설립자\n장수의학 전문의',tags:['운동','장수']},
+{name:'마크 하이먼',title:'기능의학 전문의\nNYT 베스트셀러 저자',tags:['영양','대사']},
+{name:'매튜 워커',title:'UC버클리\n신경과학 교수',tags:['수면','두뇌']},
+{name:'토마스 사이프리드',title:'보스턴칼리지\n생물학 교수',tags:['암','대사']},
+{name:'제시 인차우스페',title:'생화학 연구자\nGlucose Goddess',tags:['혈당','영양']},
+{name:'제이슨 펑',title:'신장내과 전문의\nObesity Code 저자',tags:['단식','체중']}
+];
+var track=document.getElementById('sliderTrack');
+for(var i=0;i<3;i++) experts.forEach(function(e){
+  var card=document.createElement('div');
+  card.className='auth-card';
+  card.innerHTML='<div><div class="auth-card-name">'+e.name+'</div><div class="auth-card-title">'+e.title.replace(/\n/g,'<br>')+'</div></div><div class="auth-card-tags">'+e.tags.map(function(t){return '<span class="tag">'+t+'</span>'}).join('')+'</div>';
+  track.appendChild(card);
+});
+
+// ===== Category Tabs =====
+var tabs=document.querySelectorAll('.cat-tab');
+var cardContainers=document.querySelectorAll('.cards-container');
+var fakeDoors=document.querySelectorAll('.fake-door');
+function setCategory(cat){
+  tabs.forEach(function(t){t.classList.toggle('active',t.dataset.cat===cat)});
+  cardContainers.forEach(function(c){c.classList.toggle('active',c.dataset.cat===cat)});
+  fakeDoors.forEach(function(f){f.classList.toggle('active',f.dataset.cat===cat)});
+}
+tabs.forEach(function(tab){tab.addEventListener('click',function(){setCategory(tab.dataset.cat)})});
+
+// ===== Render =====
+renderCards('body',data.body);
+renderCards('aging',data.aging);
+setCategory('body');
+
+// ===== Close expanded on outside click =====
+document.addEventListener('click',function(e){
+  if(!e.target.closest('.card'))document.querySelectorAll('.card.expanded').forEach(function(c){c.classList.remove('expanded')});
+});
+
+// ===== CTA Handlers =====
+function handleMainSignup(){
+  var email=document.getElementById('mainEmail').value;
+  if(!email||!email.includes('@'))return;
+  document.getElementById('ctaSection').style.display='none';
+  document.getElementById('postSignup').classList.add('active');
+}
+function handleFakeDoorSignup(btn){
+  var form=btn.closest('.email-form');
+  var input=form.querySelector('.email-input');
+  if(!input.value||!input.value.includes('@'))return;
+  btn.closest('.fake-door-box').innerHTML='<p style="font-size:15px;color:var(--cta);padding:20px 0">등록 완료! 오픈 시 알려드리겠습니다.</p>';
+}
+function handleVoc(){
+  var v=document.getElementById('vocInput').value;
+  if(!v)return;
+  document.getElementById('vocThanks').style.display='block';
+  document.getElementById('vocInput').disabled=true;
+}
+function handleStickySignup(){
+  var email=document.getElementById('stickyEmail').value;
+  if(!email||!email.includes('@'))return;
+  document.getElementById('stickyBar').innerHTML='<span style="font-size:13px;color:var(--cta)">등록 완료! 감사합니다.</span>';
+  setTimeout(function(){document.getElementById('stickyBar').classList.add('sticky-hidden')},2000);
+}
+
+// ===== Swipe back removed (conflicts with iOS Safari native back gesture) =====
+
+// ===== Sticky Bar =====
+(function(){
+  var bar=document.getElementById('stickyBar');
+  var target=document.getElementById('categoriesSection');
+  if(!bar||!target)return;
+  var observer=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){bar.classList.remove('sticky-hidden');observer.disconnect();}
+    });
+  },{threshold:0.1});
+  observer.observe(target);
+})();
+
+// ===== Scroll Fade-in =====
+(function(){
+  var els=document.querySelectorAll('.scroll-fade');
+  if(!els.length)return;
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.15});
+  els.forEach(function(el){obs.observe(el)});
+})();
+</script>
+</body>
+</html>
