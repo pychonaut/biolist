@@ -18,9 +18,9 @@
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
---bg:#0A0A0A;--card:#1A1A1A;--card-hover:#252525;--card-border:#2A2A2A;
---text:#F0F0F0;--text-sub:#888;--text-hint:#555;
---cta:#00C896;--cta-hover:#00E0A8;
+--bg:#FFFFFF;--card:#F5F5F5;--card-hover:#EBEBEB;--card-border:#E0E0E0;
+--text:#1A1A1A;--text-sub:#666;--text-hint:#999;
+--cta:#2563EB;--cta-hover:#3B82F6;
 --radius:12px;--font:'Pretendard Variable',-apple-system,BlinkMacSystemFont,sans-serif;--serif:'Noto Serif KR',serif;
 }
 html{-webkit-tap-highlight-color:transparent;overflow-x:hidden}
@@ -28,25 +28,26 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);-webkit-font
 ::-webkit-scrollbar{display:none}
 body{-ms-overflow-style:none;scrollbar-width:none}
 .container{max-width:480px;margin:0 auto;padding:0 20px}
+.main-wrap{max-width:520px;margin:0 auto}
 
 /* Topbar */
-.topbar{position:sticky;top:0;z-index:100;padding:12px 20px;background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center}
-.topbar-logo{font-size:15px;font-weight:500;letter-spacing:2px;color:#888}
-.topbar-btn{padding:7px 14px;background:var(--cta);color:#000;border:none;border-radius:8px;font-size:12px;font-weight:700;font-family:var(--font);cursor:pointer;transition:background 0.2s}
+.topbar{position:sticky;top:0;z-index:100;padding:12px 20px;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.08);display:flex;justify-content:space-between;align-items:center;max-width:520px;margin:0 auto}
+.topbar-logo{font-size:15px;font-weight:500;letter-spacing:2px;color:#555}
+.topbar-btn{padding:8px 16px;background:var(--cta);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;font-family:var(--font);cursor:pointer;transition:background 0.2s}
 .topbar-btn:hover{background:var(--cta-hover)}
 
 /* Hero - Screen 1: Quote */
 .hero-screen1{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 20px;padding-bottom:60px}
-.hero-quote{font-family:var(--serif);font-size:32px;font-weight:700;color:#ccc;line-height:1.5;margin-bottom:12px;opacity:0;animation:fadeIn 0.8s ease forwards}
-.hero-quote-author{font-size:14px;font-weight:400;color:#666;opacity:0;animation:fadeIn 0.8s ease 0.3s forwards}
+.hero-quote{font-family:var(--serif);font-size:49px;font-weight:700;color:#1A1A1A;line-height:1.5;margin-bottom:14px;opacity:0;animation:fadeIn 0.8s ease forwards}
+.hero-quote-author{font-size:16px;font-weight:400;color:#666;opacity:0;animation:fadeIn 0.8s ease 0.3s forwards}
 .hero-scroll-hint{margin-top:48px;opacity:0;animation:fadeIn 1.2s ease 1s forwards}
 .hero-scroll-hint span{display:block;font-size:20px;animation:bounce 2s ease infinite}
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
 
 /* Hero - Screen 2: Main copy */
-.hero-screen2{padding:80px 20px 48px;max-width:480px;margin:0 auto}
-.hero-main{font-size:28px;font-weight:700;color:#F0F0F0;line-height:1.4;margin-bottom:24px}
-.hero-sub{font-size:16px;font-weight:400;color:#888;line-height:1.7}
+.hero-screen2{padding:80px 20px 48px}
+.hero-main{font-size:37px;font-weight:800;color:#1A1A1A;line-height:1.4;margin-bottom:24px}
+.hero-sub{font-size:21px;font-weight:400;color:#444;line-height:1.7}
 
 /* Scroll fade-in */
 .scroll-fade{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease}
@@ -56,17 +57,17 @@ body{-ms-overflow-style:none;scrollbar-width:none}
 
 /* Authority Slider */
 .authority{padding:32px 0;overflow:hidden}
-.authority-title{font-size:13px;font-weight:500;color:var(--text-hint);letter-spacing:1px;text-transform:uppercase;margin-bottom:20px;padding:0 20px}
+.authority-title{font-size:16px;font-weight:700;color:#555;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px;padding:0 20px}
 .slider-wrap{overflow:hidden}
 .slider-track{display:flex;gap:12px;padding:0;animation:slide 36s linear infinite;will-change:transform}
 .slider-track:hover{animation-play-state:paused}
 @keyframes slide{0%{transform:translateX(0)}100%{transform:translateX(calc(-173px * 9))}}
 .auth-card{min-width:161px;height:161px;background:var(--card);border:0.5px solid var(--card-border);border-radius:var(--radius);padding:20px;display:flex;flex-direction:column;justify-content:space-between;flex-shrink:0;transition:background 0.2s}
 .auth-card:hover{background:var(--card-hover)}
-.auth-card-name{font-size:15px;font-weight:700}
-.auth-card-title{font-size:11px;color:var(--text-sub);line-height:1.4;margin-top:4px}
+.auth-card-name{font-size:16px;font-weight:700}
+.auth-card-title{font-size:14px;color:var(--text-sub);line-height:1.4;margin-top:4px}
 .auth-card-tags{display:flex;gap:6px;flex-wrap:wrap}
-.tag{font-size:10px;color:var(--text-sub);background:rgba(255,255,255,0.06);padding:3px 8px;border-radius:20px}
+.tag{font-size:12px;color:var(--text-sub);background:rgba(0,0,0,0.06);padding:4px 10px;border-radius:20px}
 
 /* Section Divider */
 .section-divider{height:0.5px;background:var(--card-border);margin:0 20px}
@@ -78,21 +79,21 @@ body{-ms-overflow-style:none;scrollbar-width:none}
 .cat-tab.active{border-bottom-color:var(--cta)}
 .cat-tab.active .cat-label{color:var(--text)}
 .cat-emoji{font-size:20px}
-.cat-label{font-size:11px;color:var(--text-sub);font-weight:500;transition:color 0.2s}
+.cat-label{font-size:13px;color:var(--text-sub);font-weight:600;transition:color 0.2s}
 
 /* Card Grid (our original style) */
 .card-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 20px}
 .card{position:relative;aspect-ratio:1/1;border-radius:14px;overflow:hidden;cursor:pointer;background:var(--card);border:0.5px solid var(--card-border)}
 .card-bg{position:absolute;inset:0;background-size:cover;background-position:center}
-.card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.2) 100%)}
+.card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0.3) 100%)}
 .card-content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:12px;text-align:center}
-.card-rank{position:absolute;top:10px;left:10px;font-size:11px;font-weight:700;padding:3px 8px;border-radius:20px;z-index:3}
-.rank-a{background:rgba(34,197,94,0.2);color:#4ade80}
-.rank-b{background:rgba(59,130,246,0.2);color:#60a5fa}
-.rank-c{background:rgba(245,158,11,0.2);color:#fbbf24}
-.card-name{font-size:16px;font-weight:700;line-height:1.3;text-shadow:0 1px 4px rgba(0,0,0,0.5)}
+.card-rank{position:absolute;top:10px;left:10px;font-size:12px;font-weight:700;padding:5px 10px;border-radius:20px;z-index:3}
+.rank-a{background:rgba(34,197,94,0.35);color:#4ade80}
+.rank-b{background:rgba(147,197,253,0.3);color:#93C5FD}
+.rank-c{background:rgba(245,158,11,0.35);color:#fbbf24}
+.card-name{font-size:18px;font-weight:800;line-height:1.3;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,0.9),0 0 24px rgba(0,0,0,0.7)}
 .card-badges{position:absolute;bottom:10px;left:10px;right:10px;display:flex;gap:4px;flex-wrap:wrap;z-index:3}
-.card-badge{font-size:9px;padding:3px 7px;border-radius:10px;background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.7)}
+.card-badge{font-size:11px;padding:4px 8px;border-radius:10px;background:rgba(255,255,255,0.22);color:rgba(255,255,255,0.9)}
 
 /* Card Expanded (L2) */
 .card.expanded .card-content{display:none}
@@ -102,14 +103,13 @@ body{-ms-overflow-style:none;scrollbar-width:none}
 .card.expanded .card-expanded-content{display:flex}
 .card.expanded .card-bg{opacity:0.15}
 .card.expanded .card-overlay{background:linear-gradient(to top,rgba(0,0,0,0.95) 0%,rgba(0,0,0,0.85) 100%)}
-.exp-title{font-size:13px;font-weight:700;text-align:center;margin-bottom:0}
+.exp-title{font-size:15px;font-weight:700;text-align:center;margin-bottom:0;color:#fff}
 .exp-bars-area{display:flex;flex-direction:column;gap:6px;justify-content:center;flex:1}
 .exp-bar-row{display:flex;align-items:center;gap:5px}
-.exp-bar-label{font-size:11px;color:rgba(255,255,255,0.6);width:32px;flex-shrink:0;white-space:nowrap}
-.exp-bar-label .emoji{font-size:12px}
+.exp-bar-label{font-size:12px;color:rgba(255,255,255,0.6);width:36px;flex-shrink:0;white-space:nowrap}
 .exp-bar-track{flex:1;height:5px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden}
 .exp-bar-fill{height:100%;border-radius:3px;transition:width 0.5s ease}
-.exp-open-btn{font-size:12px;font-weight:700;color:#fff;text-align:center;padding:8px 0;background:var(--cta);border-radius:8px;cursor:pointer;width:100%;flex-shrink:0}
+.exp-open-btn{font-size:14px;font-weight:700;color:#fff;text-align:center;padding:8px 0;background:var(--cta);border-radius:8px;cursor:pointer;width:100%;flex-shrink:0}
 
 /* Cards Container */
 .cards-container{display:none}
@@ -119,61 +119,66 @@ body{-ms-overflow-style:none;scrollbar-width:none}
 .fake-door{padding:0 20px;text-align:center;display:none}
 .fake-door.active{display:block}
 .fake-door-box{background:var(--card);border:0.5px solid var(--card-border);border-radius:var(--radius);padding:32px 20px}
-.fake-door-text{font-size:15px;font-weight:500;color:var(--text-sub);margin-bottom:8px}
-.fake-door-sub{font-size:13px;color:var(--text-hint);margin-bottom:20px}
+.fake-door-text{font-size:21px;font-weight:600;color:var(--text);margin-bottom:8px}
+.fake-door-sub{font-size:16px;color:var(--text-sub);margin-bottom:20px}
 .email-form{display:flex;flex-direction:column;gap:10px;max-width:360px;margin:0 auto}
-.email-input{background:var(--card);border:0.5px solid var(--card-border);border-radius:8px;padding:14px 16px;font-size:15px;color:var(--text);font-family:var(--font);outline:none;transition:border-color 0.2s}
+.email-input{background:#fff;border:1.5px solid #D0D0D0;border-radius:8px;padding:14px 16px;font-size:16px;color:var(--text);font-family:var(--font);outline:none;transition:border-color 0.2s}
 .email-input:focus{border-color:var(--cta)}
 .email-input::placeholder{color:var(--text-hint)}
 
 /* CTA Section */
-.cta-section{padding:40px 20px;text-align:center}
-.cta-title{font-size:16px;color:var(--text-sub);margin-bottom:20px;line-height:1.6}
-.cta-btn{background:var(--cta);color:#000;border:none;border-radius:8px;padding:14px;font-size:15px;font-weight:700;font-family:var(--font);cursor:pointer;transition:background 0.2s}
+.cta-section{padding:48px 20px;text-align:center}
+.cta-title{font-size:28px;color:var(--text);margin-bottom:24px;line-height:1.5;font-weight:600}
+.cta-btn{background:var(--cta);color:#fff;border:none;border-radius:8px;padding:16px;font-size:16px;font-weight:700;font-family:var(--font);cursor:pointer;transition:background 0.2s}
 .cta-btn:hover{background:var(--cta-hover)}
 .cta-btn:active{transform:scale(0.98)}
 
 /* Post Signup */
-.post-signup{display:none;text-align:center;padding:0 20px}
-.post-signup.active{display:block}
-.post-title{font-size:20px;font-weight:700;margin-bottom:12px}
-.post-sub{font-size:14px;color:var(--text-sub);line-height:1.7;margin-bottom:24px}
-.post-question{font-size:15px;margin-bottom:16px;line-height:1.6}
+.post-signup{display:none;text-align:center;padding:40px 20px}
+.post-signup.active{display:block;animation:fadeSlideUp 0.5s ease forwards}
+@keyframes fadeSlideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.post-check{width:64px;height:64px;border-radius:50%;background:var(--cta);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;animation:popIn 0.4s ease 0.2s both}
+@keyframes popIn{from{transform:scale(0)}to{transform:scale(1)}}
+.post-check svg{width:32px;height:32px}
+.post-title{font-size:24px;font-weight:700;margin-bottom:12px}
+.post-sub{font-size:16px;color:var(--text-sub);line-height:1.7;margin-bottom:28px}
+.post-question{font-size:17px;margin-bottom:16px;line-height:1.6}
 .voc-form{display:flex;flex-direction:column;gap:10px;max-width:360px;margin:0 auto}
 .voc-input{background:var(--card);border:0.5px solid var(--card-border);border-radius:8px;padding:14px 16px;font-size:15px;color:var(--text);font-family:var(--font);outline:none;resize:none;min-height:80px;transition:border-color 0.2s}
 .voc-input:focus{border-color:var(--cta)}
 .voc-input::placeholder{color:var(--text-hint)}
-.voc-btn{background:var(--card);color:var(--text);border:0.5px solid var(--card-border);border-radius:8px;padding:12px;font-size:14px;font-weight:500;font-family:var(--font);cursor:pointer;transition:all 0.2s}
+.voc-btn{background:var(--card);color:var(--text);border:1px solid var(--card-border);border-radius:8px;padding:12px;font-size:14px;font-weight:500;font-family:var(--font);cursor:pointer;transition:all 0.2s}
 .voc-btn:hover{background:var(--card-hover)}
 .voc-thanks{display:none;font-size:14px;color:var(--cta);margin-top:12px}
 
 /* Detail Overlay (L3) */
-.detail-overlay{position:fixed;inset:0;z-index:200;background:var(--bg);overflow-y:auto;overflow-x:hidden;touch-action:pan-y;display:none}
+.detail-overlay{position:fixed;top:0;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:520px;z-index:200;background:#FFFFFF;overflow-y:auto;overflow-x:hidden;display:none}
 .detail-overlay.active{display:block}
-.detail-topbar{position:sticky;top:0;z-index:210;padding:14px 20px;background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);display:flex;align-items:center}
+.detail-topbar{position:sticky;top:0;z-index:210;padding:14px 20px;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.08);display:flex;align-items:center}
 .detail-back{background:none;border:none;color:var(--text);font-size:15px;font-family:var(--font);cursor:pointer}
 .detail-hero{padding:24px 20px;text-align:center}
 .detail-name{font-size:24px;font-weight:800;margin-bottom:6px}
 .detail-desc{font-size:14px;color:var(--text-sub);line-height:1.6}
 .detail-section{padding:20px 20px 0}
 .detail-section-title{font-size:13px;color:var(--text-hint);letter-spacing:1px;margin-bottom:14px}
-.detail-bar-row{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-.detail-bar-label{font-size:14px;color:var(--text-sub);width:50px}
-.detail-bar-track{flex:1;height:8px;background:rgba(255,255,255,0.08);border-radius:4px;overflow:hidden}
-.detail-bar-fill{height:100%;border-radius:4px}
-.detail-bar-value{font-size:13px;color:var(--text);width:40px;text-align:right}
+.detail-score-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:0.5px solid var(--card-border)}
+.detail-score-row:last-child{border-bottom:none}
+.detail-score-label{font-size:14px;color:var(--text-sub);width:55px;flex-shrink:0}
+.detail-score-cell{flex:1;position:relative;height:28px}
+.detail-score-bg{position:absolute;left:0;top:0;height:100%;border-radius:6px;transition:width 0.5s ease}
+.detail-score-text{position:relative;z-index:1;height:100%;display:flex;align-items:center;padding:0 10px;font-size:12px;font-weight:700;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.2);white-space:nowrap;overflow:visible}
 .detail-info{padding:20px;font-size:14px;color:var(--text-sub);line-height:1.8}
 .detail-info dt{color:var(--text);font-weight:600;margin-top:12px}
 .detail-info dd{margin-left:0}
 .detail-cta{padding:20px;text-align:center;padding-bottom:40px}
-.detail-cta button{width:100%;max-width:400px;padding:14px;background:rgba(255,255,255,0.1);color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:700;font-family:var(--font);cursor:pointer}
+.detail-cta button{width:100%;max-width:400px;padding:14px;background:var(--cta);color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:700;font-family:var(--font);cursor:pointer}
 
 /* Sticky Bar */
-.sticky-bar{position:fixed;bottom:0;left:0;right:0;z-index:150;padding:12px 20px 14px;background:rgba(10,10,10,0.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,0.06);transition:transform 0.3s ease;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.sticky-bar.sticky-hidden{transform:translateY(100%);pointer-events:none}
-.sticky-bar-text{font-size:13px;color:var(--text-sub);flex:1}
-.sticky-bar-btn{padding:10px 20px;background:var(--cta);color:#000;border:none;border-radius:8px;font-size:13px;font-weight:700;font-family:var(--font);cursor:pointer;white-space:nowrap;flex-shrink:0}
-.sticky-bar-close{background:none;border:none;color:rgba(255,255,255,0.25);font-size:16px;cursor:pointer;padding:4px;flex-shrink:0}
+.sticky-bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);z-index:150;padding:12px 20px 14px;background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid rgba(0,0,0,0.08);transition:transform 0.3s ease;display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;max-width:520px}
+.sticky-bar.sticky-hidden{transform:translateX(-50%) translateY(100%);pointer-events:none}
+.sticky-bar-text{font-size:14px;color:var(--text);flex:1}
+.sticky-bar-btn{padding:10px 20px;background:var(--cta);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;font-family:var(--font);cursor:pointer;white-space:nowrap;flex-shrink:0}
+.sticky-bar-close{background:none;border:none;color:rgba(0,0,0,0.3);font-size:16px;cursor:pointer;padding:4px;flex-shrink:0}
 
 .hidden{display:none!important}
 </style>
@@ -183,8 +188,10 @@ body{-ms-overflow-style:none;scrollbar-width:none}
 <!-- Topbar -->
 <header class="topbar">
   <div class="topbar-logo">biolist</div>
-  <button class="topbar-btn" onclick="document.getElementById('ctaSection').scrollIntoView({behavior:'smooth'})">등록하기</button>
+  <button class="topbar-btn" onclick="document.getElementById('ctaSection').scrollIntoView({behavior:'smooth'})">알림 받기</button>
 </header>
+
+<main class="main-wrap">
 
 <!-- Hero Screen 1: Quote -->
 <section class="hero-screen1">
@@ -196,13 +203,13 @@ body{-ms-overflow-style:none;scrollbar-width:none}
 <!-- Hero Screen 2: Main Copy -->
 <section class="hero-screen2">
   <h1 class="hero-main scroll-fade">예전 같지 않다면,<br>아직 방법을 못 찾은 겁니다</h1>
-  <p class="hero-sub scroll-fade">의학적 근거, 비용, 실천 난이도.<br>세상의 건강법을 하나의 리스트로.</p>
+  <p class="hero-sub scroll-fade">의학적 근거, 비용, 실천 난이도<br>세상의 건강법을 하나의 리스트로</p>
 </section>
 
 <!-- Authority Slider -->
 <section class="authority">
   <div class="authority-title">REFERENCES</div>
-  <p style="font-size:14px;color:var(--text-sub);padding:0 20px;margin-bottom:20px">세계가 주목하는 건강 정보를 한곳에서 확인하세요</p>
+  <p style="font-size:16px;color:#444;padding:0 20px;margin-bottom:20px">세계가 주목하는 건강 정보를 한곳에서 확인하세요</p>
   <div class="slider-wrap">
     <div class="slider-track" id="sliderTrack"></div>
   </div>
@@ -219,7 +226,7 @@ body{-ms-overflow-style:none;scrollbar-width:none}
       <div class="cat-tab" data-cat="fatigue"><span class="cat-emoji">⚡</span><span class="cat-label">피로</span></div>
       <div class="cat-tab" data-cat="sleep"><span class="cat-emoji">😴</span><span class="cat-label">수면</span></div>
       <div class="cat-tab" data-cat="brain"><span class="cat-emoji">🧠</span><span class="cat-label">두뇌</span></div>
-      <div class="cat-tab" data-cat="digest"><span class="cat-emoji">🫁</span><span class="cat-label">소화</span></div>
+      <div class="cat-tab" data-cat="digest"><span class="cat-emoji">🍽️</span><span class="cat-label">소화</span></div>
     </div>
   </div>
 
@@ -265,16 +272,17 @@ body{-ms-overflow-style:none;scrollbar-width:none}
 
 <!-- CTA -->
 <section class="cta-section" id="ctaSection">
-  <p class="cta-title">내 몸에 맞는 새로운 선택지,<br>가장 먼저 받아보세요.</p>
+  <p class="cta-title">내 몸에 맞는 새로운 선택지,<br>가장 먼저 받아보세요</p>
   <div class="email-form" id="mainEmailForm">
     <input type="email" class="email-input" id="mainEmail" placeholder="이메일을 입력하세요">
     <button class="cta-btn" onclick="handleMainSignup()">알림 받기</button>
   </div>
-  <p style="font-size:12px;color:var(--text-hint);margin-top:12px">광고 없음 · 언제든 해지 가능</p>
+  <p style="font-size:13px;color:var(--text-sub);margin-top:12px">광고 없음 · 언제든 해지 가능</p>
 </section>
 
 <!-- Post Signup -->
 <section class="post-signup" id="postSignup">
+  <div class="post-check"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
   <p class="post-title">등록 완료!</p>
   <p class="post-sub">biolist는 지금 이 순간에도 만들어지고 있습니다.</p>
   <p class="post-question">가장 먼저 데이터로 확인하고 싶은<br>고민은 무엇인가요?</p>
@@ -287,11 +295,13 @@ body{-ms-overflow-style:none;scrollbar-width:none}
 
 <footer style="text-align:center;padding:32px 20px 48px;font-size:12px;color:var(--text-hint)">© 2026 biolist</footer>
 
+</main>
+
 <!-- Sticky Bar -->
 <div class="sticky-bar sticky-hidden" id="stickyBar">
   <p class="sticky-bar-text">짐작은 그만, 내 몸에 맞는 방법을 고르세요</p>
-  <button class="sticky-bar-btn" onclick="document.getElementById('ctaSection').scrollIntoView({behavior:'smooth'})">등록하기</button>
-  <button class="sticky-bar-close" onclick="this.parentElement.classList.add('sticky-hidden')">✕</button>
+  <button class="sticky-bar-btn" onclick="document.getElementById('ctaSection').scrollIntoView({behavior:'smooth'})">알림 받기</button>
+  <button class="sticky-bar-close" onclick="dismissStickyBar()">✕</button>
 </div>
 
 <!-- Detail Overlay (L3) -->
@@ -304,28 +314,28 @@ body{-ms-overflow-style:none;scrollbar-width:none}
 // ===== Data (v2 spec) =====
 var data={
   body:[
-    {name:'고단백 식단',rank:'A',badges:['식단','체중'],img:'https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=400&h=400&fit=crop',gradient:'linear-gradient(135deg,#1a3a2a,#0d1f15)',
+    {name:'고단백 식단',rank:'A',badges:['식단','체중'],img:'img/protein.jpg',gradient:'linear-gradient(135deg,#1a3a2a,#0d1f15)',
      evidence:9,cost:5,difficulty:6,safety:9,
      summary:'체중 1kg당 1.6g 이상의 단백질을 매일 섭취',
      monthlyCost:'월 10~30만원 (식단 구성에 따라)',effectStart:'4~8주 (근력 운동 병행 시)',
      keyEvidence:'2025 네트워크 메타분석에서 근력 운동 + 단백질 보충이 근력(SMD=0.45)과 근량 모두 유의미 향상. 1.3g/kg 초과 시 추가 이득 감소',
      caution:'신장 질환자는 의사 상담 필요. 건강한 성인에게는 안전',
      experts:'가브리엘 라이언, 피터 아티아'},
-    {name:'크레아틴',rank:'A',badges:['보충제','근육'],img:'https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=400&h=400&fit=crop',gradient:'linear-gradient(135deg,#1a2a3a,#0d1520)',
+    {name:'크레아틴',rank:'A',badges:['보충제','근육'],img:'img/creatine.jpg',gradient:'linear-gradient(135deg,#1a2a3a,#0d1520)',
      evidence:10,cost:9,difficulty:9,safety:9,
      summary:'하루 3~5g 크레아틴 모노하이드레이트 복용',
      monthlyCost:'월 5천~2만원',effectStart:'1~2주 (근육 충전 완료 시점)',
      keyEvidence:'685개 임상시험, 12,839명 대상. 부작용 발생률 플라시보(13.2%)와 크레아틴(13.7%) 차이 없음. 근력 운동 병행 시 제지방량 +1.1kg, 체지방 -0.7kg',
      caution:'충분한 수분 섭취 권장 (3.5~4L/일). 신장 기능 정상인에게 안전. 탈모 유발 근거 없음',
      experts:'피터 아티아, 앤드류 후버만'},
-    {name:'식후 산책',rank:'B',badges:['운동','혈당'],img:'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=400&h=400&fit=crop',gradient:'linear-gradient(135deg,#2a2a1a,#15150d)',
+    {name:'식후 산책',rank:'B',badges:['운동','혈당'],img:'img/walking.jpg',gradient:'linear-gradient(135deg,#2a2a1a,#15150d)',
      evidence:7,cost:10,difficulty:10,safety:10,
      summary:'식사 후 15분 걷기',
      monthlyCost:'무료',effectStart:'즉시 (식후 혈당 스파이크 당일 감소)',
      keyEvidence:'소규모 RCT 다수에서 식후 15분 걷기가 혈당 스파이크를 유의미하게 감소시킴. 체중 감량 직접 근거는 약하지만 대사 건강 개선 효과',
      caution:'특별한 부작용 없음. 누구나 즉시 시작 가능',
      experts:'제시 인차우스페, 피터 아티아'},
-    {name:'식사 순서 뒤집기',rank:'B',badges:['식단','혈당'],img:'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=400&fit=crop',gradient:'linear-gradient(135deg,#2a1a2a,#150d15)',
+    {name:'식사 순서 뒤집기',rank:'B',badges:['식단','혈당'],img:'img/meal-order.jpg',gradient:'linear-gradient(135deg,#2a1a2a,#150d15)',
      evidence:7,cost:10,difficulty:9,safety:10,
      summary:'채소 → 단백질 → 탄수화물 순서로 식사',
      monthlyCost:'무료',effectStart:'즉시 (식후 혈당 반응 당일 감소)',
@@ -334,28 +344,28 @@ var data={
      experts:'제시 인차우스페'}
   ],
   aging:[
-    {name:'간헐적 단식',rank:'B',badges:['단식','대사'],img:'https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=400&h=400&fit=crop',gradient:'linear-gradient(135deg,#1a2a2a,#0d1515)',
+    {name:'간헐적 단식',rank:'B',badges:['단식','대사'],img:'img/fasting.jpg',gradient:'linear-gradient(135deg,#1a2a2a,#0d1515)',
      evidence:7,cost:10,difficulty:6,safety:7,
      summary:'16시간 공복 + 8시간 식사 (16:8 프로토콜)',
      monthlyCost:'무료',effectStart:'2~4주 (체중 감소, 인슐린 감수성 개선)',
      keyEvidence:'체중 감량·인슐린 감수성 개선 인체 근거 있음. 오토파지 촉진 동물 근거. 장기 안전성 양호하나 일부 연구에서 근손실 우려 제기',
      caution:'초기 두통·피로·짜증 가능. 단백질 섭취와 병행 권장. 임산부·당뇨 환자는 의사 상담 필요',
      experts:'제이슨 펑, 데이비드 싱클레어'},
-    {name:'NMN',rank:'B',badges:['보충제','노화'],img:'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=400&fit=crop',gradient:'linear-gradient(135deg,#2a1a3a,#150d20)',
+    {name:'NMN',rank:'B',badges:['보충제','노화'],img:'img/nmn.jpg',gradient:'linear-gradient(135deg,#2a1a3a,#150d20)',
      evidence:6,cost:4,difficulty:9,safety:8,
      summary:'하루 250~1,000mg NMN 보충제 복용',
      monthlyCost:'월 3~15만원 (용량·브랜드에 따라)',effectStart:'4~8주 (NAD+ 수치 상승, 체감 에너지 변화)',
      keyEvidence:'2022 인체시험에서 근육 인슐린 감수성 25% 개선. 2026 임상에서 NMN이 혈중 NAD+를 2배 증가시킴 확인. 단, 장기(1년 이상) 안전성은 아직 미확립',
      caution:'단기(~12주) 복용은 안전 확인. 장기 복용 데이터 부족. TMG 병행 권장',
      experts:'데이비드 싱클레어, 피터 아티아'},
-    {name:'사우나',rank:'B',badges:['열노출','심혈관'],img:'https://images.unsplash.com/photo-1554244933-d876deb6b2ff?w=400&h=400&fit=crop',gradient:'linear-gradient(135deg,#3a1a1a,#200d0d)',
+    {name:'사우나',rank:'B',badges:['열노출','심혈관'],img:'img/sauna.jpg',gradient:'linear-gradient(135deg,#3a1a1a,#200d0d)',
      evidence:7,cost:8,difficulty:6,safety:6,
      summary:'주 2~4회, 15~20분 사우나 (80~100°C)',
      monthlyCost:'무료~5만원 (찜질방·시설에 따라)',effectStart:'4~8주 (심혈관·회복력 체감)',
      keyEvidence:'핀란드 코호트 연구(2,315명, 20년 추적)에서 주 4~7회 사우나 이용자의 심혈관 사망 위험이 주 1회 대비 50% 낮음. 열충격단백질(HSP) 활성화 근거',
      caution:'탈수 주의, 충분한 수분 섭취 필수. 혈압 이상·심장 질환자는 의사 상담. 음주 후 사우나 금지',
      experts:'앤드류 후버만, 데이비드 싱클레어'},
-    {name:'비타민D',rank:'A',badges:['보충제','면역'],img:'https://images.unsplash.com/photo-1471922694854-ff1b63b20054?w=400&h=400&fit=crop',gradient:'linear-gradient(135deg,#3a2a1a,#201510)',
+    {name:'비타민D',rank:'A',badges:['보충제','면역'],img:'img/vitamind.jpg',gradient:'linear-gradient(135deg,#3a2a1a,#201510)',
      evidence:9,cost:9,difficulty:10,safety:9,
      summary:'하루 1,000~4,000 IU 비타민D3 보충',
      monthlyCost:'월 3천~1만원',effectStart:'4~8주 (혈중 수치 정상화)',
@@ -365,8 +375,17 @@ var data={
   ]
 };
 
-// ===== Bar color (10점 스케일: 8-10 초록, 5-7 노랑, 1-4 빨강) =====
+// ===== Bar color (L2용) =====
 function barColor(v){return v>=8?'#22C55E':v>=5?'#F59E0B':'#EF4444'}
+
+// ===== Grade badge (L3용, 5단계) =====
+function grade(v){
+  if(v>=9) return {text:'Great',bg:'#16a34a'};
+  if(v>=7) return {text:'Good',bg:'#22c55e'};
+  if(v>=5) return {text:'Okay',bg:'#eab308'};
+  if(v>=3) return {text:'Bad',bg:'#f97316'};
+  return {text:'Poor',bg:'#ef4444'};
+}
 
 // ===== Render Cards =====
 function renderCards(type,items){
@@ -379,7 +398,7 @@ function renderCards(type,items){
     card.setAttribute('data-type',type);
     card.setAttribute('data-index',i);
     card.innerHTML=
-      '<div class="card-bg" style="background-image:url(\''+item.img+'\');background-color:#1A1A1A"></div>'+
+      '<div class="card-bg" style="background-image:url(\''+item.img+'\');background-color:#DDD"></div>'+
       '<div class="card-overlay"></div>'+
       '<span class="card-rank rank-'+item.rank.toLowerCase()+'">'+item.rank+'</span>'+
       '<div class="card-content"><div class="card-name">'+item.name+'</div></div>'+
@@ -421,9 +440,14 @@ function openDetail(type,index){
   document.body.style.right='0';
   var html='<div class="detail-hero"><div class="detail-name">'+item.name+'</div><p class="detail-desc">'+item.summary+'</p></div>';
   html+='<div class="detail-section"><div class="detail-section-title">SCORES</div>';
-  var bars=[{l:'근거',v:item.evidence},{l:'비용',v:item.cost},{l:'난이도',v:item.difficulty},{l:'안전',v:item.safety}];
-  bars.forEach(function(b){
-    html+='<div class="detail-bar-row"><span class="detail-bar-label">'+b.l+'</span><div class="detail-bar-track"><div class="detail-bar-fill" style="width:'+(b.v*10)+'%;background:'+barColor(b.v)+'"></div></div><span class="detail-bar-value">'+b.v+'/10</span></div>';
+  var scores=[{l:'근거',v:item.evidence},{l:'비용',v:item.cost},{l:'난이도',v:item.difficulty},{l:'안전',v:item.safety}];
+  scores.forEach(function(s){
+    var g=grade(s.v);
+    var w=Math.max(25, s.v*10);
+    var label='';
+    if(s.l==='비용'&&item.monthlyCost) label=item.monthlyCost;
+    else label=g.text;
+    html+='<div class="detail-score-row"><span class="detail-score-label">'+s.l+'</span><div class="detail-score-cell"><div class="detail-score-bg" style="width:'+w+'%;background:'+g.bg+'"></div><div class="detail-score-text" data-bar-width="'+w+'">'+label+'</div></div></div>';
   });
   html+='</div>';
   html+='<div class="detail-section"><div class="detail-section-title">INFO</div><dl class="detail-info">';
@@ -437,6 +461,20 @@ function openDetail(type,index){
   document.getElementById('detailContent').innerHTML=html;
   document.getElementById('detailOverlay').classList.add('active');
   history.pushState({detail:true},'');
+  // 바 너비 설정 후, 글자 넘침 체크해서 정렬 결정
+  setTimeout(function(){
+    document.querySelectorAll('.detail-score-text').forEach(function(el){
+      var cell=el.parentElement;
+      var barW=cell.querySelector('.detail-score-bg').offsetWidth;
+      el.style.width=barW+'px';
+      // scrollWidth > clientWidth면 글자가 바를 넘는 것
+      if(el.scrollWidth>el.clientWidth){
+        el.style.justifyContent='flex-start';
+      } else {
+        el.style.justifyContent='center';
+      }
+    });
+  },50);
 }
 function closeDetail(fromPopstate){
   var overlay=document.getElementById('detailOverlay');
@@ -496,8 +534,15 @@ document.addEventListener('click',function(e){
 function handleMainSignup(){
   var email=document.getElementById('mainEmail').value;
   if(!email||!email.includes('@'))return;
-  document.getElementById('ctaSection').style.display='none';
-  document.getElementById('postSignup').classList.add('active');
+  var cta=document.getElementById('ctaSection');
+  cta.style.transition='opacity 0.3s ease';
+  cta.style.opacity='0';
+  setTimeout(function(){
+    cta.style.display='none';
+    var post=document.getElementById('postSignup');
+    post.classList.add('active');
+    post.scrollIntoView({behavior:'smooth',block:'center'});
+  },300);
 }
 function handleFakeDoorSignup(btn){
   var form=btn.closest('.email-form');
@@ -521,6 +566,22 @@ function handleStickySignup(){
 // ===== Swipe back removed (conflicts with iOS Safari native back gesture) =====
 
 // ===== Sticky Bar =====
+var stickyDismissed=false;
+function dismissStickyBar(){
+  var bar=document.getElementById('stickyBar');
+  bar.classList.add('sticky-hidden');
+  stickyDismissed=true;
+  // 스크롤 300px 이상 움직이면 다시 표시
+  var dismissY=window.scrollY;
+  function onScrollAfterDismiss(){
+    if(Math.abs(window.scrollY-dismissY)>300){
+      stickyDismissed=false;
+      bar.classList.remove('sticky-hidden');
+      window.removeEventListener('scroll',onScrollAfterDismiss);
+    }
+  }
+  window.addEventListener('scroll',onScrollAfterDismiss);
+}
 (function(){
   var bar=document.getElementById('stickyBar');
   var target=document.getElementById('categoriesSection');
